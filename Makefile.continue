@@ -1,0 +1,41 @@
+
+debug-build: debug-nowait-build
+
+debug-run: debug-nowait-compose 
+
+debug-headless: debug-nowait-compose-headless
+
+debug-stop-remove: debug-nowait-compose-headless-stop debug-nowait-compose-headless-remove
+
+debug-clean: debug-nowait-image-remove clean-extra
+
+
+# docker compose with process that dont wait to debugger
+
+debug-nowait-build:
+	docker build --file Dockerfile-continue.debug --tag go-debugger-image .
+
+debug-nowait-compose:
+	docker compose -f docker-compose-continue.yml up
+
+debug-nowait-compose-headless:
+	docker compose -f docker-compose-continue.yml up -d
+
+debug-nowait-compose-headless-logs:
+	docker compose -f docker-compose-continue.yml logs --follow
+
+debug-nowait-compose-headless-stop:
+	docker compose -f docker-compose-continue.yml down
+
+debug-nowait-compose-headless-remove:
+	docker compose -f docker-compose-continue.yml rm -f
+
+debug-nowait-image-remove:
+	docker image rm go-debugger-image -f
+
+
+clean-extra:
+	# compose create another image  - need to remove this as well
+	#  ⠿ Container go-docker-debug-app-1  Started 
+	docker container rm go-docker-debug-app-1  -f
+	docker image rm go-docker-debug-app  -f
