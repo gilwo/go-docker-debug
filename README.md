@@ -1,3 +1,13 @@
+Note: this is an extended version of the original [repo](https://github.com/kenaqshal/go-debugger). 
+the following has been added:
+1. Makefile for ease of use (no need to remember all the docker commands)
+2. use docker compose and compose-less (because sometimes you dont compose...)
+3. provide mode that dont wait for debugger to connect (on demmand debugging, delve `--continue` [flag](https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_exec.md#options)) use `Makefile.continue`
+
+
+--- 
+
+
 This project aims to provide a tutorial on how to debug Golang applications inside Docker containers using both Docker and Docker Compose. if you want to know more detail you can visit the [blog](https://www.kenaqshal.com/blog/debugging-dockerized-go-applications)
 
 
