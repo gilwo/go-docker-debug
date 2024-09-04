@@ -1,3 +1,10 @@
+# update (September 2024)
+
+this repo is archived
+
+refer to https://github.com/gilwo/go-debugger for extended version of debugging go programs
+
+---
 Note: this is an extended version of the original [repo](https://github.com/kenaqshal/go-debugger). 
 the following has been added:
 1. Makefile for ease of use (no need to remember all the docker commands)
